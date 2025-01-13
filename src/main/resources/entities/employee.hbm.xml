@@ -10,6 +10,10 @@ This class contains the employee detail.
 <id name = "id" type = "int" column = "id">
 <generator class="native"/>
 </id>
+<set name="certificates" table="EMP_CERT" cascade="all">
+    <key column="employee_id" />
+    <many-to-many class="es.ada.u3.hibernate.entities.Certificate" column="certificate_id" />
+</set>
 <property name = "firstName" column = "first_name" type = "string"/>
 <property name = "lastName" column = "last_name" type = "string"/>
 <property name = "salary" column = "salary" type = "int"/>

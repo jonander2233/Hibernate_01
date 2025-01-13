@@ -2,6 +2,7 @@ package es.ada.u3.hibernate;
 
 import es.ada.u3.hibernate.dao.EmployeeDAO;
 import es.ada.u3.hibernate.dao.utils.HibernateSessionFactory;
+import es.ada.u3.hibernate.entities.Certificate;
 import es.ada.u3.hibernate.entities.Employee;
 
 import java.util.Iterator;
@@ -11,11 +12,20 @@ public class Main {
     private static EmployeeDAO EM_DAO = EmployeeDAO.getInstance();
 
     public static void main(String[] args) {
-//        addEmployee("Fernando","Vargas", 3000);
+        addEmployee("Perico","Vargas", 3000,new Certificate("ISO-6969"));
         printEmployees(EM_DAO.loadEmployees());
     }
+
+
+
     private static void addEmployee(String fname, String iname, int salary){
         Employee emp = EM_DAO.addEmployee(new Employee(fname, iname, salary));
+    }
+    private static void addEmployee(String fname, String iname, int salary, Certificate certificate){
+        Employee emp = new Employee(fname,iname,salary);
+        emp.addCertificate(certificate);
+        EM_DAO.addEmployee(emp);
+
     }
 
 
