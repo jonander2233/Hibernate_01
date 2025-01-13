@@ -8,8 +8,18 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Main {
+    private static EmployeeDAO EM_DAO = EmployeeDAO.getInstance();
+
     public static void main(String[] args) {
-        EmployeeDAO EM_DAO = EmployeeDAO.getInstance();
+//        addEmployee("Fernando","Vargas", 3000);
+        printEmployees(EM_DAO.loadEmployees());
+    }
+    private static void addEmployee(String fname, String iname, int salary){
+        Employee emp = EM_DAO.addEmployee(new Employee(fname, iname, salary));
+    }
+
+
+    private static void baseExample(){
         // Add few employee records in database
         Employee emp1 = EM_DAO.addEmployee(new Employee("Alfred", "Vincent", 4000));
         Employee emp2 = EM_DAO.addEmployee(new Employee("Jhon", "Gordon", 3000));
@@ -23,6 +33,8 @@ public class Main {
         printEmployees(EM_DAO.loadEmployees());
         HibernateSessionFactory.shutdown();
     }
+
+
 
     private static void printEmployees(List<Employee> employees) {
         if (employees.isEmpty()){
