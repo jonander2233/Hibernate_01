@@ -10,6 +10,6 @@ This class contains the certificate detail.
 <id name = "id" type = "int" column = "id">
 <generator class="native"/>
 </id>
-<property name = "name" column = "Certifiacate_name" type = "string"/>
+<property name = "name" column = "CertificateName" type = "string"/>
 </class>
 </hibernate-mapping>

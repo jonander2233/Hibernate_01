@@ -4,10 +4,17 @@ public class Certificate {
     private int id;
     private String name;
 
+    public Certificate() {
+    }
+
     public Certificate(String name) {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return  name ;
+    }
 
     public int getId() {
         return id;

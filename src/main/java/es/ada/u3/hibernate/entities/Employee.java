@@ -11,8 +11,9 @@ public class Employee {
     private String firstName;
     private String lastName;
     private Integer salary;
-    private Set<Certificate> certificates;
+    private Set<Certificate> certificates = null;
     public Employee() {}
+
     public Employee(String fname, String lname, Integer salary) {
         this.firstName = fname;
         this.lastName = lname;
@@ -52,5 +53,13 @@ public class Employee {
     }
     public void addCertificate(Certificate certificate){
         certificates.add(certificate);
+    }
+
+    public Set<Certificate> getCertificates() {
+        return certificates;
+    }
+
+    public void setCertificates(Set<Certificate> certificates) {
+        this.certificates = certificates;
     }
 }
